@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>FerreiraLearn - Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="icon" th:href="@{/images/logo.png}">
+</head>
+<body>
+
+<header class="header">
+    <a th:href="@{/}" class="header-logo-link">
+        <h1>FerreiraLearn</h1>
+    </a>
+    <div class="auth-buttons">
+        <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post" style="margin: 0;">
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
+    </div>
+</header>
+
+<main class="home-container">
+    <section class="hero">
+        <h2>Aprenda com quem entende</h2>
+        <p>Cursos de programação direto ao ponto.</p>
+    </section>
+
+    <section class="course-grid">
+        <h2>Cursos Disponíveis</h2>
+
+        <div th:each="course : ${courses}" class="course-card">
+            <h3 th:text="${course.title}">Nome do Curso</h3>
+            <p th:text="${course.description}">Descrição do curso...</p>
+
+            <a th:href="@{|/course/${course.id}/lesson/1|}">Acessar Curso</a>
+        </div>
+
+        <div th:if="${courses.isEmpty()}">
+            <p>Nenhum curso disponível no momento.</p>
+        </div>
+    </section>
+
+    <section class="instructor-section">
+        <h2>Instrutor</h2>
+        <div class="instructor-content">
+
+            <div class="instructor-photo">
+                <img th:src="@{/images/instrutor.png}" alt="Foto do Instrutor">
+            </div>
+
+            <div class="instructor-info">
+
+                <h3>Professor Paulo Montier</h3>
+
+                <p class="instructor-title">Coordenador de Cursos de Jogos e Dev. de Sistemas</p>
+
+                <div class="instructor-stats">
+                    <div class="stat-item"><span>★</span> 4,9 Classificação</div>
+                    <div class="stat-item"><span>✓</span> 8.200 Avaliações</div>
+                    <div class="stat-item"><span>●</span> 50.000 Alunos</div>
+                </div>
+
+                <p class="instructor-bio">
+                    Graduado em Análise e Desenvolvimento de Sistemas (IFSP), com pós-graduações em Gestão Escolar (USP) e Jogos (UFSCar).
+                    Mestre em Engenharia Mecânica (UNISANTA), com pesquisas em Indústria 4.0 e ciência de dados, incluindo parcerias internacionais (HUST/China) financiadas pela FAPESP.
+                    Atua como professor no Centro Paula Souza (CPS) desde 2018, com experiência de coordenação nos cursos de Programação de Jogos Digitais e Desenvolvimento de Sistemas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main> </body>
+</html>

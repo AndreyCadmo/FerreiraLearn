@@ -1,0 +1,147 @@
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../images/background_login.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Estilo do Card --- */
+.form-wrapper {
+    align-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5rem 10rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    flex: 1;
+    flex-direction: column;
+}
+
+.form-wrapper h2 {
+    text-align: center;
+    color: #eaeaea;
+    margin-bottom: 1.5rem;
+}
+.form_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+}
+
+/* --- Grupos de Input --- */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #a6a6a6;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* --- Botão Principal --- */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3d503c;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: #204511;
+}
+
+/* --- Link para Alternar  --- */
+.toggle-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #d8d8d8;
+}
+
+.toggle-link a {
+    color: #49f600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+
+.form-wrapper#register {
+    display: none;
+}
+.form-wrapper#login {
+    display: flex;
+}
+
+.form-wrapper#register:target {
+    display: flex;
+}
+.form-wrapper#register:target ~ .form-wrapper#login {
+    display: none;
+}
+
+.form-wrapper#login:target {
+    display: block;
+}
+
+.title_plataform {
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(2.5rem, 8vh, 5rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.error-message {
+    color: #ff8a8a;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #a5d6a7;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,222 @@
+/* --- Reset Básico e Body --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+
+/* --- Header --- */
+.header {
+    background-color: #1c1d1f;
+    color: white;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: relative;
+    z-index: 10;
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+.header .auth-buttons div {
+    display: flex;
+    gap: 10px;
+}
+/* Estilo Botão Logout */
+.header .btn-logout {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 16px;
+    margin: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+.header .btn-logout:hover {
+    background-color: white;
+    color: #1c1d1f;
+}
+/* Estilo Botões Login/Registro  */
+.header .auth-buttons a {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+.header .auth-buttons a:hover {
+    background-color: white;
+    color: #1c1d1f;
+}
+
+/* --- Container Principal --- */
+.home-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Seção Hero --- */
+.hero {
+    text-align: center;
+    padding: 40px 20px 60px 20px;
+}
+.hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 1.3rem;
+    color: #7ae107;
+    font-weight: 300;
+}
+
+/* --- Grid de Cursos --- */
+.course-grid h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+}
+
+/* --- Card do Curso --- */
+.course-card {
+    background: #1c1d1f;
+    border-radius: 8px;
+    padding: 24px 30px;
+    margin-bottom: 20px;
+    border: 1px solid #555;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: #7ae107;
+}
+.course-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #fff;
+}
+.course-card p {
+    color: #d1d7dc;
+    margin-bottom: 20px;
+}
+.course-card a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #7ae107;
+    color: #1c1d1f;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.course-card a:hover {
+    background-color: #fff;
+    color: #1c1d1f;
+}
+
+.instructor-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #555;
+}
+.instructor-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+}
+/* Layout Flex */
+.instructor-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+.instructor-photo {
+    flex-basis: 150px;
+    flex-shrink: 0;
+}
+.instructor-photo img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #7ae107;
+}
+/* Bloco de Informações */
+.instructor-info {
+    flex: 1;
+}
+.instructor-info h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+.instructor-info .instructor-title {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.instructor-info .instructor-bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d1d7dc;
+}
+/* Estatísticas */
+.instructor-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+.instructor-stats .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: #f5f5f5;
+}
+.instructor-stats .stat-item span {
+    color: #7ae107;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+/* Responsivo (Celular) */
+@media (max-width: 768px) {
+    .instructor-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .instructor-info {
+        text-align: center;
+    }
+    .instructor-stats {
+        justify-content: center;
+    }
+}
+
+.header-logo-link {
+    text-decoration: none;
+    color: inherit;
+}

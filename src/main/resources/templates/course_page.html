@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FerreiraLearn</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" th:href="@{/images/logo.png}">
+</head>
+<body>
+
+<header class="header">
+    <a th:href="@{/}" class="header-logo-link">
+        <h1>FerreiraLearn</h1>
+    </a>
+    <div class="auth-buttons">
+        <form th:action="@{/logout}" method="post" style="margin: 0;">
+            <button type="submit" class="btn-logout">Logout</button>
+        </form>
+    </div>
+</header>
+
+<div class="course-player-container">
+
+    <div class="main-content">
+        <section class="video-player-wrapper" th:if="${currentLesson != null}">
+            <iframe th:src="${currentLesson.videoUrl}"
+                    title="Player de vídeo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen="allowfullscreen">
+            </iframe>
+        </section>
+
+        <section class="course-feedback-bar">
+            <div class="completion-widget">
+                <form th:action="@{|/course/${course.id}/lesson/${currentLesson.id}/complete|}"
+                      method="post">
+                    <button type="submit" class="btn-complete-lesson">
+                        Marcar como Concluída ✓
+                    </button>
+                </form>
+            </div>
+
+            <div class="progress-widget">
+                <div class="progress-labels">
+                    <strong>Seu Progresso:</strong>
+                    <span th:text="${progressPercent} + '%'">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill"
+                         th:style="'width: ' + ${progressPercent} + '%;'">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="course-sidebar">
+        <h2>Conteúdo do curso</h2>
+
+        <div class="module-item" th:each="modulo : ${course.modules}">
+            <div class="module-title">
+                <span th:text="${modulo.title}">Título do Módulo</span>
+            </div>
+
+            <ul class="lesson-list">
+                <li class="lesson-item" th:each="aula : ${modulo.lessons}">
+                    <a th:href="@{|/course/${course.id}/lesson/${aula.id}|}"
+                       th:text="${aula.title}"
+                       th:classappend="${aula.id == currentLessonId} ? 'active' : ''">
+                        Título da Aula
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

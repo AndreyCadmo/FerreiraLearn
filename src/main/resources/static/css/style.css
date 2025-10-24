@@ -1,0 +1,282 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #353535;
+    color: #1c1d1f;
+}
+
+/* --- Layout Principal (Flexbox) --- */
+.course-player-container {
+    display: flex;
+    width: 100%;
+}
+
+/* --- Coluna da Esquerda (Main Content) --- */
+.main-content {
+    flex: 1;
+    padding: 32px;
+}
+
+/* --- Player de Vídeo Responsivo --- */
+.video-player-wrapper {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+.video-player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* --- Detalhes do Curso --- */
+.course-details-content {
+    margin-top: 24px;
+}
+.course-details-content h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+.course-details-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* --- Coluna da Direita (Sidebar)  --- */
+.course-sidebar {
+    width: 380px;
+    background-color: #1c1d1f;
+    color: #fff;
+    height: calc(100vh - 60px);;
+    position: sticky;
+    top: 60px;;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+}
+.course-sidebar h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 24px;
+    margin: 0;
+    border-bottom: 1px solid #3e4143;
+}
+
+/* --- Itens do Módulo --- */
+.module-item {
+    border-bottom: 1px solid #3e4143;
+}
+.module-title {
+    background-color: #2e3438;
+    padding: 16px 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* --- Lista de Aulas --- */
+.lesson-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #1c1d1f;
+}
+.lesson-item a {
+    display: block;
+    padding: 12px 24px 12px 32px;
+    text-decoration: none;
+    color: #d1d7dc;
+    font-size: 0.9rem;
+    border-top: 1px solid #3e4143;
+}
+
+.lesson-list .lesson-item a:hover {
+    background-color: #f0f0f0;
+    color: #1c1d1f;
+}
+
+.lesson-list .lesson-item a.active {
+    background-color: #e0e7ff;
+    color: #3c3c3c;
+    font-weight: bold;
+    border-right: 4px solid #00ffa6;
+}
+
+/* --- Header --- */
+.header {
+    background-color: #1c1d1f;
+    color: white;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: relative;
+    z-index: 10;
+}
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+.header .btn-logout {
+    background: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 16px;
+    margin: 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+.header .btn-logout:hover {
+    background-color: white;
+    color: #1c1d1f;
+}
+
+.header-logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Baixo do Player  --- */
+.course-feedback-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #1c1d1f;
+    color: #fff;
+    padding: 20px 30px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+/* --- Lado Esquerdo: Estrelas --- */
+.rating-widget {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.rating-widget .stars {
+    display: flex;
+    gap: 5px;
+    font-size: 1.5rem;
+    color: #555;
+}
+.rating-widget .stars .star {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.rating-widget .stars .star:hover,
+.rating-widget .stars .star.filled {
+    color: #f0c04a;
+}
+
+/* --- Lado Direito: Progresso --- */
+.progress-widget {
+    flex-basis: 300px;
+    flex-grow: 1;
+    max-width: 400px;
+}
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+.progress-labels span {
+    color: #7ae107;
+    font-weight: bold;
+}
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #555;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.progress-bar-fill {
+    height: 100%;
+    background-color: #7ae107;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .course-feedback-bar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .progress-widget {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.completion-widget .btn-complete-lesson {
+    background-color: #7ae107;
+    color: #1c1d1f;
+    border: none;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.completion-widget .btn-complete-lesson:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+
+.rating-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.rating-widget .stars {
+    display: flex;
+    gap: 5px;
+    font-size: 1.5rem;
+    color: #555; /* Cor da estrela "vazia" */
+}
+.rating-widget .stars .star {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* Efeito HOVER: Pinta a estrela e todas as anteriores */
+.rating-widget .stars:hover .star {
+    color: #f0c04a; /* Amarelo "cheio" */
+}
+.rating-widget .stars .star:hover ~ .star {
+    color: #555; /* Retorna as seguintes para "vazio" */
+}
+
+/* Estado "Selecionado" (será controlado pelo JS) */
+.rating-widget .stars.selected .star {
+    color: #f0c04a; /* Amarelo "cheio" */
+}
+.rating-widget .stars.selected .star.selected ~ .star {
+    color: #555; /* Retorna as seguintes para "vazio" */
+}
+
+/* Mensagem de feedback (ex: "Salvo!") */
+.rating-message {
+    font-size: 0.8rem;
+    color: #7ae107; /* O seu verde */
+    height: 1.2em; /* Reserva espaço para a mensagem */
+}
