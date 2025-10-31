@@ -12,11 +12,19 @@ A idealização do projeto FerreiraLearn se relacionou fortemente com o conhecim
 
 *Tela de início da plataforma*
 
-    <imagem aqui>
+<img width="1919" height="942" alt="image" src="https://github.com/user-attachments/assets/23170e51-6578-41fb-b6b3-18a170bade5c" />
+
+*Dentro da plafaforma*
+
+<img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/4a705756-f0b8-4351-893c-f199d53051b5" />
+
+*Vendo Player de video*
+
+<img width="1919" height="944" alt="image" src="https://github.com/user-attachments/assets/de1b11a9-4878-47a3-be28-04a7ceaaf5e6" />
 
 *Testando login e plafaforma*
 
-    <video aqui>
+https://github.com/user-attachments/assets/b23e366e-ae4a-4804-abce-bab9696c9a68
 
 ## Principais Funcionalidades
 
