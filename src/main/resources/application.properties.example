@@ -1,6 +1,6 @@
 spring.datasource.url=jdbc:mysql://localhost:3306/ferreiralearn
-spring.datasource.username= <-- DEIXE O NOME DO BRANCO AQUI
-spring.datasource.password=  <-- DEIXE A SENHA DO BRANCO AQUI
+spring.datasource.username= <-- DEIXE O USERNAME AQUI
+spring.datasource.password=  <-- DEIXE A SENHA DO BANCO AQUI
 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
